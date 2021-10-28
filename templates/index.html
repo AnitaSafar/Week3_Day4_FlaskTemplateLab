@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Events</title>
+    </head>
+    <body>
+        <h1>Event planner</h1>
+
+        <form class="form-inline" action="/events" method="post">
+            <label for="event_name">Event name:</label>
+            <input type="text" name="event_name"><br>
+            <label for="event_date">Event date:</label>
+            <input type="text" name="event_date"><br>
+            <label for="num_guests">Number of guests:</label>
+            <input type="text" name="num_guests"><br>
+            <label for="room">Room:</label>
+            <input type="text" name="room"><br>
+            <label for="description">Description:</label>
+            <textarea name="description" rows="2" cols="30"></textarea><br>
+            <input type="submit" value="Add Event">
+          </form>
+        
+        {% for event in events %}
+            <p>{{ event.name }}:<br>
+                {{ event.date }}<br>
+                {{ event.num_guests }}<br>
+                {{ event.room }}<br>
+                {{ event.description }}
+            </p>
+        {% endfor %}
+    </body>
+</html>
